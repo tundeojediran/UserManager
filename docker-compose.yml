@@ -1,0 +1,14 @@
+version: '2'
+services:
+  manager:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      - mongo-db 
+    ports:
+     - "3000:3000"
+  mongo-db:
+    image: "mongo:latest"
+    volumes:
+        - ./data/db:/data/db
